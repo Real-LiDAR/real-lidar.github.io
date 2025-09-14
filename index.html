@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ReaLiDAR: Material-Aware LiDAR Simulation for 3D Perception in Autonomous Driving">
+  <meta name="keywords" content="ReaLiDAR, LiDAR Simulation, 3D Perception, Autonomous Driving">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReaLiDAR: Material-Aware LiDAR Simulation for 3D Perception in Autonomous Driving</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ReaLiDAR: Material-Aware LiDAR Simulation for 3D Perception in Autonomous Driving</h1>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- 
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section>
+!-->
+
+  <!-- 
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+!-->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            LiDAR simulation is essential for developing and validating Autonomous Driving Systems (ADS), enabling controlled evaluation across diverse and safety-critical scenarios. 
+            Existing LiDAR simulation methods either rely on single-bounce ray casting or learn point cloud distributions in a 
+            data-driven manner, without explicit guarantees of physical plausibility. As a result, they fail to capture light scattering 
+            behaviors governed by material properties, such as specular reflection, transmission, and multi-echoes, leading to a persistent sim-to-real gap. 
+          </p>
+          <p>
+            In this paper, we present ReaLiDAR, a material-aware LiDAR simulation framework for 3D perception in autonomous driving. 
+            Built on radiance-based light transport theory, ReaLiDAR simulates laser beam–material interactions using physically-based material reflectance models, 
+            tracing multi-bounce paths and computing the time-of-flight and intensity of each echo. It further incorporates beam 
+            divergence, intensity calibration, and echo selection to faithfully reproduce real sensor behavior.
+          </p>
+          <p>
+            We evaluate ReaLiDAR in 3 representative scenarios covering key ADS functionalities: automated parking, autonomous emergency braking, and urban navigation, 
+            using two commercial LiDARs. Under challenging conditions involving glass and specular surfaces, ReaLiDAR improves range and intensity accuracy by 13.1% and 28.4%, 
+            respectively, compared to existing methods. Moreover, object detection model trained on ReaLiDAR data achieves an 18% gain in average precision on KITTI over CARLA-trained ones, 
+            showing its effectiveness in narrowing the sim-to-real gap.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <!--/ Abstract. -->
+
+   <!-- 
+    
+   Paper video.
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+!-->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <!-- <h2 class="title is-3">Pre-Fine-Tuning Weight Recovery</h2> -->
+      
+      <img src="./static/images/realidar_overview_pipeline.jpg" alt="Overview of ReaLiDAR simulation pipeline."
+        class="blend-img-background center-image">
+      <p>
+        <strong>ReaLiDAR</strong> consists of 4 modules: <em>Laser Beam Modeling</em>, <em>Light Transport Modeling</em>,
+        <em>Material Reflectance Modeling</em>, and <em>Post-Processing</em>.
+      </p>
+      <br>
+      <div class="level-set has-text-justified">
+        <p>
+          We propose <strong>ReaLiDAR</strong>, a material-aware LiDAR simulation framework for autonomous driving.
+            The framework models the full LiDAR sensing pipeline, from the emission
+            and divergence of laser beams, through their propagation
+            in free space, to material-dependent scattering at surfaces
+            that ultimately generates echoes.
+          ReaLiDAR presents the following key contributions:
+        </p>
+        <p>
+          i) To the best of our knowledge, ReaLiDAR is the first material-aware LiDAR simulation framework for 3D perception in autonomous driving.
+           It accurately models key light scattering behaviors across a wide variety of materials, including Lambertian, reflective, retro-reflective, and transmissive materials. 
+        </p>
+        <p>
+          ii) We incorporate key factors governing LiDAR sensing, including beam divergence, material properties, intensity calibration, range falloff, 
+          and echo selection, in order to enhance simulation accuracy.
+        </p>
+
+        <p>
+          iii) We seamlessly integrate ReaLiDAR into CARLA simulator, facilitating large-scale testing of LiDAR-based autonomous driving models under diverse scenarios. 
+        </p>
+
+        <p>
+          iiii) We evaluate ReaLiDAR using two LiDAR sensors across three representative scenarios. 
+          Results show that ReaLiDAR achieves closer alignment with real-world scans in both range and intensity compared to existing methods. 
+          Furthermore, synthetic data generated by ReaLiDAR improves performance on downstream vehicle detection task, narrowing the sim-to-real gap compared to models 
+          trained on CARLA-generated data.
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<!-- rs m1 garage scenario -->
+<section class="hero is-light is-small" id="videos">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3" id="video-title">Garage Scenario (LiDAR RoboSense M1-Plus)</h2>
+
+      <h3 class="subtitle is-4 has-text-grey" id="video-subtitle">
+        Ground-truth
+      </h3>
+
+      <div id="video-carousel" class="carousel results-carousel">
+        <!-- Item 1 -->
+        <div class="item" data-title="Ground-truth">
+          <div class="video-wrapper">
+          <video autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/rs_m1_garage/gt.mp4" type="video/mp4">
+          </video>
+        </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="item" data-title="Ours">
+          <div class="video-wrapper">
+          <video controls muted playsinline height="100%">
+            <source src="./static/videos/rs_m1_garage/rs_m1_garage_isaac.mp4" type="video/mp4">
+          </video>
+        </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="item" data-title="CARLA (baseline)">
+          <div class="video-wrapper">
+          <video controls muted playsinline height="100%">
+            <source src="./static/videos/rs_m1_garage/carla.mp4" type="video/mp4">
+          </video>
+        </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="item" data-title="PCSim (baseline)">
+          <div class="video-wrapper">
+          <video controls muted playsinline height="100%">
+            <source src="./static/videos/rs_m1_garage/pcsim0.5.mp4" type="video/mp4">
+          </video>
+        </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="item" data-title="NVIDIA Isaac Sim RTX LiDAR (baseline)">
+          <div class="video-wrapper">
+          <video controls muted playsinline height="100%">
+            <source src="./static/videos/rs_m1_garage/rs_m1_garage_isaac.mp4" type="video/mp4">
+          </video>
+          </div>
+        </div>
+
+        
+        
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- vlp16 garage scenario -->
+<section class="hero is-light is-small" id="videos-2">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3" id="video-title-2">Garage Scenario (LiDAR Velodyne VLP-16)</h2>
+
+      <h3 class="subtitle is-4 has-text-grey" id="video-subtitle-2">
+        Ground-truth
+      </h3>
+
+      <div id="video-carousel-2" class="carousel results-carousel">
+        <!-- Item 1 -->
+        <div class="item" data-title="Ground-truth">
+          <div class="video-wrapper">
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/vlp_16_garage/gt.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="item" data-title="Ours">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/vlp_16_garage/vlp16_garage_isaac.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="item" data-title="CARLA (baseline)">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/vlp_16_garage/vlp16_garage_carla.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="item" data-title="PCSim (baseline)">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/vlp_16_garage/vlp16_garage_pcsim0.5.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="item" data-title="NVIDIA Isaac Sim RTX LiDAR (baseline)">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/vlp_16_garage/vlp16_garage_isaac.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- rs m1 mirror scenario -->
+<section class="hero is-light is-small" id="videos-3">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3" id="video-title-3">Mirror Scenario (LiDAR RoboSense M1-Plus)</h2>
+
+      <h3 class="subtitle is-4 has-text-grey" id="video-subtitle-3">
+        Ground-truth
+      </h3>
+
+      <div id="video-carousel-3" class="carousel results-carousel">
+        <!-- Item 1 -->
+        <div class="item" data-title="Ground-truth">
+          <div class="video-wrapper">
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/rs_m1_mirror/gt.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="item" data-title="Ours">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/rs_m1_mirror/isaac.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="item" data-title="CARLA (baseline)">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/rs_m1_mirror/carla.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="item" data-title="PCSim (baseline)">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/rs_m1_mirror/pcsim.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="item" data-title="NVIDIA Isaac Sim RTX LiDAR (baseline)">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/rs_m1_mirror/isaac.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- rs m1 glass scenario -->
+<section class="hero is-light is-small" id="videos-4">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3" id="video-title-4">Glass Scenario (LiDAR RoboSense M1-Plus)</h2>
+
+      <h3 class="subtitle is-4 has-text-grey" id="video-subtitle-4">
+        Ground-truth
+      </h3>
+
+      <div id="video-carousel-4" class="carousel results-carousel">
+        <!-- Item 1 -->
+        <div class="item" data-title="Ground-truth">
+          <div class="video-wrapper">
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/rs_m1_glass/gt.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="item" data-title="Ours">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/rs_m1_glass/isaac.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="item" data-title="CARLA (baseline)">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/rs_m1_glass/carla.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="item" data-title="PCSim (baseline)">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/rs_m1_glass/rs_m1_glass_pcsim0.5.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="item" data-title="NVIDIA Isaac Sim RTX LiDAR (baseline)">
+          <div class="video-wrapper">
+            <video controls muted playsinline height="100%">
+              <source src="./static/videos/rs_m1_glass/isaac.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- CARLA synthetic scenes -->
+<section class="section" id="carla-scenes">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">CARLA Synthetic Scenes</h2>
+        <p class="subtitle is-5 has-text-grey">Simulated environments using CARLA simulator</p>
+        
+        <div class="columns is-multiline is-vcentered">
+          <!-- Video 1 -->
+          <div class="column is-half">
+            <div class="video-card">
+              <video controls muted playsinline class="scene-video">
+                <source src="./static/videos/carla_long_sequence/baseline/town7seed3up.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">
+                <h4 class="title is-5">Map: Town07_Opt</h4>
+                <p>Simulated rural driving scenario (Bird's Eye View)</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Video 2 -->
+          <div class="column is-half">
+            <div class="video-card">
+              <video controls muted playsinline class="scene-video">
+                <source src="./static/videos/carla_long_sequence/baseline/town7seed3front.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">
+                <h4 class="title is-5">Map: Town07_Opt</h4>
+                <p>Simulated rural driving scenario (Ego Vehicle View)</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Video 3 -->
+          <div class="column is-half">
+            <div class="video-card">
+              <video controls muted playsinline class="scene-video">
+                <source src="./static/videos/carla_long_sequence/baseline/town10seed1up.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">
+                <h4 class="title is-5">Map: Town10_Opt</h4>
+                <p>Simulated urban driving scenario (Bird's Eye View)</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Video 4 -->
+          <div class="column is-half">
+            <div class="video-card">
+              <video controls muted playsinline class="scene-video">
+                <source src="./static/videos/carla_long_sequence/baseline/town10seed1front.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">
+                <h4 class="title is-5">Map: Town10_Opt</h4>
+                <p>Simulated urban driving scenario (Ego Vehicle View)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Synthetic Scenes -->
+<section class="section" id="our-scenes">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">ReaLiDAR Synthetic Scenes</h2>
+        <p class="subtitle is-5 has-text-grey">Enhanced environments using ReaLiDAR framework</p>
+        
+        <div class="columns is-multiline is-vcentered">
+          <!-- Video 1 -->
+          <div class="column is-half">
+            <div class="video-card">
+              <video controls muted playsinline class="scene-video">
+                <source src="./static/videos/our_scenes/scene1.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">
+                <h4 class="title is-5">Map: Town07_Opt</h4>
+                <p>Simulated rural driving scenario (Bird's Eye View)</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Video 2 -->
+          <div class="column is-half">
+            <div class="video-card">
+              <video controls muted playsinline class="scene-video">
+                <source src="./static/videos/our_scenes/scene2.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">
+                <h4 class="title is-5">Map: Town10_Opt</h4>
+                <p>Simulated rural driving scenario (Ego Vehicle View)</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Video 3 -->
+          <div class="column is-half">
+            <div class="video-card">
+              <video controls muted playsinline class="scene-video">
+                <source src="./static/videos/our_scenes/scene3.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">
+                <h4 class="title is-5">Map: Town10_Opt</h4>
+                <p>Simulated urban driving scenario (Bird's Eye View)</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Video 4 -->
+          <div class="column is-half">
+            <div class="video-card">
+              <video controls muted playsinline class="scene-video">
+                <source src="./static/videos/our_scenes/scene4.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">
+                <h4 class="title is-5">Map: Town10_Opt</h4>
+                <p>Simulated urban driving scenario (Ego Vehicle View)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+-->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+              target="_blank">Academic Project Page Template</a> which was adopted from the <a
+              href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            <br> This website is licensed under a <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

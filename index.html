@@ -56,83 +56,6 @@
 </section>
 
 
-  <!-- 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section>
-!-->
-
-  <!-- 
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-!-->
-
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -163,29 +86,10 @@
     </div>
   </div>
 </section>
-    <!--/ Abstract. -->
-
-   <!-- 
-    
-   Paper video.
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-</section>
-!-->
 
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <!-- <h2 class="title is-3">Pre-Fine-Tuning Weight Recovery</h2> -->
       
       <img src="./static/images/realidar_overview_pipeline.jpg" alt="Overview of ReaLiDAR simulation pipeline."
         class="blend-img-background center-image">
@@ -477,6 +381,72 @@
 </section>
 
 
+<!-- Material parameters -->
+<section class="section" id="material-parameters">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-4">Manipulating material parameters in ReaLiDAR yields distinct point cloud patterns.</h2>
+        <p class="main-subtitle is-5 has-text-grey">Existing simulators (e.g., NVIDIA Isaac Sim RTX LiDAR) cannot reproduce these effects.</p>
+
+        <div class="columns is-multiline is-vcentered material-grid">
+          <!-- Img 1 -->
+          <div class="column is-half">
+            <figure class="image material-figure">
+              <img class="material-img"
+                   src="./static/images/material_parameter/intensity_raincloud_realidar.png"
+                   alt="Intensity distributions of road across distinct material-parameter combinations (ReaLiDAR)">
+            </figure>
+            <h4 class="title is-6 material-caption">Intensity of road across
+               material-parameter combinations. (ReaLiDAR)  </h4>
+          </div>
+
+          <!-- Img 2 -->
+          <div class="column is-half">
+            <figure class="image material-figure">
+              <img class="material-img"
+                   src="./static/images/material_parameter/intensity_point_count_bar_realidar.png"
+                   alt="Point Num (Raydrop Phenomenon) of road across distinct material-parameter combinations (ReaLiDAR)">
+            </figure>
+            <h4 class="title is-6 material-caption">Point Number of road across material-parameter combinations. (ReaLiDAR)</h4>
+          </div>
+
+          <!-- Img 3 -->
+          <div class="column is-half">
+            <figure class="image material-figure">
+              <img class="material-img"
+                   src="./static/images/material_parameter/intensity_raincloud_isaac.png"
+                   alt="Intensity distributions of road across distinct material-parameter combinations (Isaac Sim RTX LiDAR)">
+            </figure>
+            <h4 class="title is-6 material-caption">Intensity of road across
+              material-parameter combinations. (Isaac Sim RTX LiDAR)</h4>
+          </div>
+
+          <!-- Img 4 -->
+          <div class="column is-half">
+            <figure class="image material-figure">
+              <img class="material-img"
+                   src="./static/images/material_parameter/point_count_bar_isaac.png"
+                   alt="Point Num (Raydrop Phenomenon) of road across distinct material-parameter combinations (Isaac Sim RTX LiDAR)">
+            </figure>
+            <h4 class="title is-6 material-caption">Point Number of road across material-parameter combinations. (Isaac Sim RTX LiDAR)</h4>
+          </div>
+        </div> <!-- /grid -->
+
+        <div class="note-plain has-text-left">
+          <div class="note-body">
+            <p><strong>Base</strong>: original settings
+              (<code>diffuse=0.1</code>, <code>roughness=0.7</code>, <code>metallic=0.5</code>, <code>specular=0.1</code>). </p>
+              <p>
+            <strong>Diff*, Rough*, Metal*, Spec*</strong>: the corresponding parameter is raised to 1 while the other three remain at their base values.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 
 <!-- CARLA synthetic scenes -->
@@ -485,27 +455,15 @@
     <div class="columns is-centered">
       <div class="column is-full-width has-text-centered">
         <h2 class="title is-3">CARLA Synthetic Scenes</h2>
-        <p class="subtitle is-5 has-text-grey">Simulated environments using CARLA simulator</p>
+        <p class="main-subtitle is-5 has-text-grey">Simulated environments using CARLA simulator (baseline)</p>
         
         <div class="columns is-multiline is-vcentered">
+
           <!-- Video 1 -->
           <div class="column is-half">
             <div class="video-card">
               <video controls muted playsinline class="scene-video">
-                <source src="./static/videos/carla_long_sequence/baseline/town7seed3up.mp4" type="video/mp4">
-              </video>
-              <div class="video-caption">
-                <h4 class="title is-5">Map: Town07_Opt</h4>
-                <p>Simulated rural driving scenario (Bird's Eye View)</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Video 2 -->
-          <div class="column is-half">
-            <div class="video-card">
-              <video controls muted playsinline class="scene-video">
-                <source src="./static/videos/carla_long_sequence/baseline/town7seed3front.mp4" type="video/mp4">
+                <source src="./static/videos/carla_long_sequence/baseline/town07_carla_ego_3s.mp4" type="video/mp4">
               </video>
               <div class="video-caption">
                 <h4 class="title is-5">Map: Town07_Opt</h4>
@@ -514,15 +472,28 @@
             </div>
           </div>
           
+          <!-- Video 2 -->
+          <div class="column is-half">
+            <div class="video-card">
+              <video controls muted playsinline class="scene-video">
+                <source src="./static/videos/carla_long_sequence/baseline/town10_ego_carla_3s.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">
+                <h4 class="title is-5">Map: Town10HD_Opt</h4>
+                <p>Simulated urban driving scenario (Ego Vehicle View)</p>
+              </div>
+            </div>
+          </div>
+
           <!-- Video 3 -->
           <div class="column is-half">
             <div class="video-card">
               <video controls muted playsinline class="scene-video">
-                <source src="./static/videos/carla_long_sequence/baseline/town10seed1up.mp4" type="video/mp4">
+                <source src="./static/videos/carla_long_sequence/baseline/town07_bev_carla_3s.mp4" type="video/mp4">
               </video>
               <div class="video-caption">
-                <h4 class="title is-5">Map: Town10_Opt</h4>
-                <p>Simulated urban driving scenario (Bird's Eye View)</p>
+                <h4 class="title is-5">Map: Town07_Opt</h4>
+                <p>Simulated rural driving scenario (Bird's Eye View)</p>
               </div>
             </div>
           </div>
@@ -531,14 +502,16 @@
           <div class="column is-half">
             <div class="video-card">
               <video controls muted playsinline class="scene-video">
-                <source src="./static/videos/carla_long_sequence/baseline/town10seed1front.mp4" type="video/mp4">
+                <source src="./static/videos/carla_long_sequence/baseline/town10_carla_bev_3s.mp4" type="video/mp4">
               </video>
               <div class="video-caption">
-                <h4 class="title is-5">Map: Town10_Opt</h4>
-                <p>Simulated urban driving scenario (Ego Vehicle View)</p>
+                <h4 class="title is-5">Map: Town10HD_Opt</h4>
+                <p>Simulated urban driving scenario (Bird's Eye View)</p>
               </div>
             </div>
           </div>
+
+
         </div>
       </div>
     </div>
@@ -551,18 +524,19 @@
     <div class="columns is-centered">
       <div class="column is-full-width has-text-centered">
         <h2 class="title is-3">ReaLiDAR Synthetic Scenes</h2>
-        <p class="subtitle is-5 has-text-grey">Enhanced environments using ReaLiDAR framework</p>
-        
+        <p class="main-subtitle is-5 has-text-grey">Enhanced environments using ReaLiDAR framework</p>
         <div class="columns is-multiline is-vcentered">
+
+
           <!-- Video 1 -->
           <div class="column is-half">
             <div class="video-card">
               <video controls muted playsinline class="scene-video">
-                <source src="./static/videos/our_scenes/scene1.mp4" type="video/mp4">
+                <source src="./static/videos/carla_long_sequence/realidar/town07_realidar_ego_view_3s.mp4" type="video/mp4">
               </video>
               <div class="video-caption">
                 <h4 class="title is-5">Map: Town07_Opt</h4>
-                <p>Simulated rural driving scenario (Bird's Eye View)</p>
+                <p>Simulated rural driving scenario (Ego Vehicle View)</p>
               </div>
             </div>
           </div>
@@ -571,24 +545,25 @@
           <div class="column is-half">
             <div class="video-card">
               <video controls muted playsinline class="scene-video">
-                <source src="./static/videos/our_scenes/scene2.mp4" type="video/mp4">
+                <source src="./static/videos/carla_long_sequence/realidar/town10_realidar_ego_3s.mp4" type="video/mp4">
               </video>
               <div class="video-caption">
-                <h4 class="title is-5">Map: Town10_Opt</h4>
-                <p>Simulated rural driving scenario (Ego Vehicle View)</p>
+                <h4 class="title is-5">Map: Town10HD_Opt</h4>
+                <p>Simulated urban driving scenario (Ego Vehicle View)</p>
               </div>
             </div>
           </div>
-          
+
+
           <!-- Video 3 -->
           <div class="column is-half">
             <div class="video-card">
               <video controls muted playsinline class="scene-video">
-                <source src="./static/videos/our_scenes/scene3.mp4" type="video/mp4">
+                <source src="./static/videos/carla_long_sequence/realidar/town07_realidar_bev_3s.mp4" type="video/mp4">
               </video>
               <div class="video-caption">
-                <h4 class="title is-5">Map: Town10_Opt</h4>
-                <p>Simulated urban driving scenario (Bird's Eye View)</p>
+                <h4 class="title is-5">Map: Town07_Opt</h4>
+                <p>Simulated rural driving scenario (Bird's Eye View)</p>
               </div>
             </div>
           </div>
@@ -597,35 +572,103 @@
           <div class="column is-half">
             <div class="video-card">
               <video controls muted playsinline class="scene-video">
-                <source src="./static/videos/our_scenes/scene4.mp4" type="video/mp4">
+                <source src="./static/videos/carla_long_sequence/realidar/town10_bev_realidar_3s.mp4" type="video/mp4">
               </video>
               <div class="video-caption">
-                <h4 class="title is-5">Map: Town10_Opt</h4>
-                <p>Simulated urban driving scenario (Ego Vehicle View)</p>
+                <h4 class="title is-5">Map: Town10HD_Opt</h4>
+                <p>Simulated urban driving scenario (Bird's Eye View)</p>
               </div>
             </div>
           </div>
+
+        
         </div>
+
+        <div class="intensity-legend has-text-centered">
+          <div class="legend-title has-text-grey is-size-6">
+            Color indicates intensity (0–255)
+          </div>
+
+          <figure class="image legend-bar">
+            <img src="./static/images/jet_colorbar.png"
+                 alt="Jet colorbar from 0 to 255" loading="lazy">
+          </figure>
+
+          <div class="legend-ticks has-text-grey is-size-7">
+            <span>0</span>
+            <span>255</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
 
 
-<!--
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
+<section class="section" id="downstream-performance">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">Downstream 3D Perception Task Performance</h2>
+        <p class="main-subtitle is-5 has-text-grey">Visualization of Vehicle Detection Results <br> model trained on synthetic data, validated on real-world KITTI datasets</p>
+
+        <div class="columns is-multiline is-vcentered">
+          <!-- Image 1 -->
+          <div class="column is-half">
+            <figure class="image">
+              <img src="./static/images/object_detection_result_comparison/carla_baseline_wo_int_22.png" alt="CARLA Baseline Sample 1" loading="lazy" style="width:100%;height:auto;">
+            </figure>
+
+            <h4 class="title is-5">CARLA Baseline (w/o intensity)</h4>
+          </div>
+
+          <!-- Image 2 -->
+          <div class="column is-half">
+            <figure class="image">
+              <img src="./static/images/object_detection_result_comparison/realidar_22.png" alt="ReaLiDAR Sample 1" loading="lazy" style="width:100%;height:auto;">
+            </figure>
+            <h4 class="title is-5">ReaLiDAR</h4>
+          </div>
+
+          <!-- Image 3 -->
+          <div class="column is-half">
+            <figure class="image">
+              <img src="./static/images/object_detection_result_comparison/carla_baseline_wo_int_24.png" alt="CARLA Baseline Sample 2" loading="lazy" style="width:100%;height:auto;">
+            </figure>
+            <h4 class="title is-5">CARLA Baseline (w/o intensity)</h4>
+          </div>
+
+          <!-- Image 4 -->
+          <div class="column is-half">
+            <figure class="image">
+              <img src="./static/images/object_detection_result_comparison/realidar_24.png" alt="ReaLiDAR Sample 2" loading="lazy" style="width:100%;height:auto;">
+            </figure>
+            <h4 class="title is-5">ReaLiDAR</h4>
+          </div>
+        </div>
+
+        <div class="bbox-note has-text-grey is-size-6">
+          <span class="legend-item">
+            <svg class="legend-icon" viewBox="0 0 20 20">
+              <rect x="2" y="2" width="16" height="16" fill="none" stroke="#ef4444" stroke-width="3"></rect>
+            </svg>
+            <span>Red bbox: ground-truths</span>
+          </span>
+
+          <span class="legend-item">
+            <svg class="legend-icon" viewBox="0 0 20 20">
+              <rect x="2" y="2" width="16" height="16" fill="none" stroke="#22c55e" stroke-width="3"></rect>
+            </svg>
+            <span>Green bbox: detection results </span>
+          </span>
+        </div>
+
+
+      </div>
+    </div>
   </div>
 </section>
--->
-
 
 <footer class="footer">
   <div class="container">

@@ -28,8 +28,6 @@ body {
 }
 
 
-.publication-title {
-}
 
 .publication-banner {
   max-height: parent;
@@ -44,8 +42,6 @@ body {
   object-fit: fit;
 }
 
-.publication-header .hero-body {
-}
 
 .publication-title {
     font-family: 'Google Sans', sans-serif;
@@ -67,9 +63,6 @@ body {
     font-weight: bolder;
 }
 
-.publication-authors {
-}
-
 .publication-authors a {
    color: hsl(204, 86%, 53%) !important;
 }
@@ -80,13 +73,6 @@ body {
 
 .author-block {
   display: inline-block;
-}
-
-.publication-banner img {
-}
-
-.publication-authors {
-  /*color: #4286f4;*/
 }
 
 .publication-video {
@@ -205,4 +191,143 @@ body {
   background-color: #f5f5f5; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
   transition: all 0.3s ease;
+}
+
+#carla-scenes .scene-video,
+#our-scenes  .scene-video {
+  display: block;          
+  width: 100%;             
+  aspect-ratio: 16 / 9;    
+  height: auto;            
+  background: #fff;      
+  object-fit: cover;      
+}
+
+
+#carla-scenes .video-caption,
+#our-scenes  .video-caption {
+  padding-top: .5rem;     
+}
+
+.video-card .video-caption p {
+  margin-top: 0rem;   
+  margin-bottom: 0.3rem;              
+}
+
+.video-card .video-caption .title {
+  margin-bottom: 0.3rem !important;  
+}
+
+
+#carla-scenes .subtitle,
+#our-scenes .subtitle  {
+  margin-bottom: 0.3rem !important;
+}
+
+#carla-scenes .title,
+#our-scenes .title{
+  margin-bottom: 0.3rem !important;
+}
+
+#carla-scenes .main-subtitle,
+#our-scenes .main-subtitle {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+#downstream-performance .subtitle{
+  margin-bottom: 0.3rem !important;
+}
+
+#downstream-performance .title {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem !important;
+}
+
+#downstream-performance .main-subtitle {
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+#material-parameters .title {
+  margin-bottom: 0.4rem;
+}
+
+#material-parameters .main-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+
+#downstream-performance .bbox-note {
+  margin-top: 1rem;       
+}
+
+#downstream-performance .bbox-note .legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;         
+  margin-right: 1rem;  
+}
+
+#downstream-performance .bbox-note .legend-icon {
+  width: 1em;  
+  height: 1em;
+  flex: 0 0 auto;
+  vertical-align: -0.15em;  
+}
+
+#downstream-performance .bbox-note .legend-sep {
+  margin: 0 0.3rem;
+  opacity: 0.6;
+}
+
+#our-scenes .intensity-legend {
+  margin-top: 1rem; 
+}
+
+#our-scenes .legend-title {
+  margin-bottom: .25rem;
+}
+
+#our-scenes .intensity-legend {
+  --legend-w: 420px;   
+  --legend-h: 10px; 
+}
+
+
+#our-scenes .legend-bar {
+  width: min(var(--legend-w), 100%);   
+  height: var(--legend-h);
+  margin: 0 auto .25rem;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+
+#our-scenes .legend-bar img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+}
+
+
+#our-scenes .legend-ticks {
+  display: flex;
+  justify-content: space-between;
+  width: min(var(--legend-w), 100%);
+  margin: 0 auto;
+  line-height: 1;
+}
+
+
+.note-plain { margin: .75rem 0 1rem; }
+.note-title { font-weight: 600; margin-bottom: .25rem; }
+.note-body { padding-left: 2.4rem; }   
+.note-body p { margin: .25rem 0; line-height: 1.5; }
+.note-plain code {
+  font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  background: none; padding: 0; color: #374151;
 }

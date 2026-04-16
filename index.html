@@ -33,7 +33,7 @@
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./static/js/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
@@ -134,246 +134,57 @@
 
 
 
-<!-- rs m1 garage scenario -->
+<!-- lidar comparison grid -->
 <section class="hero is-light is-small" id="videos">
   <div class="hero-body">
-    <div class="container is-max-desktop has-text-centered">
-      <h2 class="title is-3" id="video-title">Garage Scenario (LiDAR RoboSense M1-Plus)</h2>
+    <div class="container is-max-fullhd lidar-comparison-container">
+      <h2 class="title is-3 has-text-centered">LiDAR Simulation Comparison</h2>
+      <p class="subtitle is-5 has-text-grey has-text-centered">
+      </p>
 
-      <h3 class="subtitle is-4 has-text-grey" id="video-subtitle">
-        Ground-truth
-      </h3>
-
-      <div id="video-carousel" class="carousel results-carousel">
-        <!-- Item 1 -->
-        <div class="item" data-title="Ground-truth">
-          <div class="video-wrapper">
-          <video autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/demo_4x/rs_m1_garage/gt_4x.mp4" type="video/mp4">
-          </video>
-        </div>
-        </div>
-        
-        <!-- Item 2 -->
-        <div class="item" data-title="Ours">
-          <div class="video-wrapper">
-          <video controls muted playsinline height="100%">
-            <source src="./static/videos/demo_4x/rs_m1_garage/realidar_rs_m1_garage_4x.mp4" type="video/mp4">
-          </video>
-        </div>
+      <div class="lidar-grid">
+        <div class="lidar-grid-header">
+          <div class="lidar-cell lidar-cell-method">CARLA (baseline)</div>
+          <div class="lidar-cell lidar-cell-method">PCSim (baseline)</div>
+          <div class="lidar-cell lidar-cell-method">NVIDIA Isaac Sim (baseline)</div>
+          <div class="lidar-cell lidar-cell-method">Ground-truth</div>
+          <div class="lidar-cell lidar-cell-method">Ours</div>
         </div>
 
-        <!-- Item 3 -->
-        <div class="item" data-title="CARLA (baseline)">
-          <div class="video-wrapper">
-          <video controls muted playsinline height="100%">
-            <source src="./static/videos/demo_4x/rs_m1_garage/carla_4x.mp4" type="video/mp4">
-          </video>
-        </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="item" data-title="PCSim (baseline)">
-          <div class="video-wrapper">
-          <video controls muted playsinline height="100%">
-            <source src="./static/videos/demo_4x/rs_m1_garage/pcsim_4x.mp4" type="video/mp4">
-          </video>
-        </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="item" data-title="NVIDIA Isaac Sim RTX LiDAR (baseline)">
-          <div class="video-wrapper">
-          <video controls muted playsinline height="100%">
-            <source src="./static/videos/demo_4x/rs_m1_garage/isaac_4x.mp4" type="video/mp4">
-          </video>
-          </div>
-        </div>
-
-        
-        
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- vlp16 garage scenario -->
-<section class="hero is-light is-small" id="videos-2">
-  <div class="hero-body">
-    <div class="container is-max-desktop has-text-centered">
-      <h2 class="title is-3" id="video-title-2">Garage Scenario (LiDAR Velodyne VLP-16)</h2>
-
-      <h3 class="subtitle is-4 has-text-grey" id="video-subtitle-2">
-        Ground-truth
-      </h3>
-
-      <div id="video-carousel-2" class="carousel results-carousel">
-        <!-- Item 1 -->
-        <div class="item" data-title="Ground-truth">
-          <div class="video-wrapper">
-            <video autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/demo_4x/vlp16_garage/gt_4x.mp4" type="video/mp4">
+        <div class="lidar-row-block">
+          <div class="lidar-strip-wrap">
+            <video data-lazy-video muted loop playsinline preload="metadata">
+              <source src="./static/videos/strips/rs_m1_garage_strip.mp4" type="video/mp4">
             </video>
           </div>
-        </div>
-        
-        <!-- Item 2 -->
-        <div class="item" data-title="Ours">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/vlp16_garage/realidar_vlp16_garage_4x.mp4" type="video/mp4">
-            </video>
-          </div>
+          <p class="lidar-row-label">Garage (RoboSense M1)</p>
         </div>
 
-        <!-- Item 3 -->
-        <div class="item" data-title="CARLA (baseline)">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/vlp16_garage/carla_4x.mp4" type="video/mp4">
+        <div class="lidar-row-block">
+          <div class="lidar-strip-wrap">
+            <video data-lazy-video muted loop playsinline preload="metadata">
+              <source src="./static/videos/strips/vlp16_garage_strip.mp4" type="video/mp4">
             </video>
           </div>
+          <p class="lidar-row-label">Garage (Velodyne VLP-16)</p>
         </div>
 
-        <!-- Item 4 -->
-        <div class="item" data-title="PCSim (baseline)">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/vlp16_garage/pcsim_4x.mp4" type="video/mp4">
+        <div class="lidar-row-block">
+          <div class="lidar-strip-wrap">
+            <video data-lazy-video muted loop playsinline preload="metadata">
+              <source src="./static/videos/strips/rs_m1_mirror_strip.mp4" type="video/mp4">
             </video>
           </div>
+          <p class="lidar-row-label">Mirror (RoboSense M1)</p>
         </div>
 
-        <!-- Item 5 -->
-        <div class="item" data-title="NVIDIA Isaac Sim RTX LiDAR (baseline)">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/vlp16_garage/isaac_4x.mp4" type="video/mp4">
+        <div class="lidar-row-block">
+          <div class="lidar-strip-wrap">
+            <video data-lazy-video muted loop playsinline preload="metadata">
+              <source src="./static/videos/strips/rs_m1_glass_strip.mp4" type="video/mp4">
             </video>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- rs m1 mirror scenario -->
-<section class="hero is-light is-small" id="videos-3">
-  <div class="hero-body">
-    <div class="container is-max-desktop has-text-centered">
-      <h2 class="title is-3" id="video-title-3">Mirror Scenario (LiDAR RoboSense M1-Plus)</h2>
-
-      <h3 class="subtitle is-4 has-text-grey" id="video-subtitle-3">
-        Ground-truth
-      </h3>
-
-      <div id="video-carousel-3" class="carousel results-carousel">
-        <!-- Item 1 -->
-        <div class="item" data-title="Ground-truth">
-          <div class="video-wrapper">
-            <video autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/demo_4x/rs_m1_mirror/gt_4x.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        
-        <!-- Item 2 -->
-        <div class="item" data-title="Ours">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/rs_m1_mirror/realidar_rs_m1_mirror_4x.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="item" data-title="CARLA (baseline)">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/rs_m1_mirror/carla_4x.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="item" data-title="PCSim (baseline)">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/rs_m1_mirror/pcsim_4x.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="item" data-title="NVIDIA Isaac Sim RTX LiDAR (baseline)">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/rs_m1_mirror/isaac_3x.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- rs m1 glass scenario -->
-<section class="hero is-light is-small" id="videos-4">
-  <div class="hero-body">
-    <div class="container is-max-desktop has-text-centered">
-      <h2 class="title is-3" id="video-title-4">Glass Scenario (LiDAR RoboSense M1-Plus)</h2>
-
-      <h3 class="subtitle is-4 has-text-grey" id="video-subtitle-4">
-        Ground-truth
-      </h3>
-
-      <div id="video-carousel-4" class="carousel results-carousel">
-        <!-- Item 1 -->
-        <div class="item" data-title="Ground-truth">
-          <div class="video-wrapper">
-            <video autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/demo_4x/rs_m1_glass/gt_4x.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        
-        <!-- Item 2 -->
-        <div class="item" data-title="Ours">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/rs_m1_glass/rs_m1_glass_realidar_4x.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="item" data-title="CARLA (baseline)">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/rs_m1_glass/carla_4x.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="item" data-title="PCSim (baseline)">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/rs_m1_glass/pcsim_4x.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="item" data-title="NVIDIA Isaac Sim RTX LiDAR (baseline)">
-          <div class="video-wrapper">
-            <video controls muted playsinline height="100%">
-              <source src="./static/videos/demo_4x/rs_m1_glass/isaac_4x.mp4" type="video/mp4">
-            </video>
-          </div>
+          <p class="lidar-row-label">Glass (RoboSense M1)</p>
         </div>
       </div>
     </div>

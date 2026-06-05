@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="ReaLiDAR: Material-Aware LiDAR Simulation for 3D Perception in Autonomous Driving">
+        content="ReaLiDAR: Material-Aware LiDAR Simulation for Robust 3D Sensing in Complex Environments">
   <meta name="keywords" content="ReaLiDAR, LiDAR Simulation, 3D Perception, Autonomous Driving">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ReaLiDAR: Material-Aware LiDAR Simulation for 3D Perception in Autonomous Driving</title>
+  <title>ReaLiDAR: Material-Aware LiDAR Simulation for Robust 3D Sensing in Complex Environments</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -22,6 +22,10 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -47,7 +51,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">ReaLiDAR: Material-Aware LiDAR Simulation for 3D Perception in Autonomous Driving</h1>
+          <h1 class="title is-1 publication-title">ReaLiDAR: Material-Aware LiDAR Simulation for Robust 3D Sensing in Complex Environments</h1>
 
         </div>
       </div>
@@ -55,79 +59,29 @@
   </div>
 </section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            LiDAR simulation is essential for developing and validating Autonomous Driving Systems (ADS), enabling controlled evaluation across diverse and safety-critical scenarios. 
-            Existing LiDAR simulation methods either rely on single-bounce ray casting or learn point cloud distributions in a 
-            data-driven manner, without explicit guarantees of physical plausibility. As a result, they fail to capture light scattering 
-            behaviors governed by material properties, such as specular reflection, transmission, and multi-echoes, leading to a persistent sim-to-real gap. 
-          </p>
-          <p>
-            In this paper, we present ReaLiDAR, a material-aware LiDAR simulation framework for 3D perception in autonomous driving. 
-            Built on radiance-based light transport theory, ReaLiDAR simulates laser beam–material interactions using physically-based material reflectance models, 
-            tracing multi-bounce paths and computing the time-of-flight and intensity of each echo. It further incorporates beam 
-            divergence, intensity calibration, and echo selection to faithfully reproduce real sensor behavior.
-          </p>
-          <p>
-            We evaluate ReaLiDAR in 3 representative scenarios covering key ADS functionalities: automated parking, autonomous emergency braking, and urban navigation, 
-            using two commercial LiDARs. Under challenging conditions involving glass and specular surfaces, ReaLiDAR improves range and intensity accuracy by 13.1% and 28.4%, 
-            respectively, compared to existing methods. Moreover, object detection model trained on ReaLiDAR data achieves an 18% gain in average precision on KITTI over CARLA-trained ones, 
-            showing its effectiveness in narrowing the sim-to-real gap.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      
+
+      <div class="content has-text-justified intro-text">
+        <p>
+          LiDAR has become a ubiquitous 3D sensing modality for autonomous driving, robotics, and unmanned aerial vehicles,
+          where simulation promises scalable, labeled data at near-zero annotation cost. Existing simulators, however, rely on
+          single-bounce ray casting or data-driven point-cloud modeling and miss material-dependent scattering, leaving a
+          persistent sim-to-real gap. <strong>ReaLiDAR</strong> closes this gap with a material-aware framework built on
+          radiance-based light transport: it represents each surface with a parameterized material model and traces laser
+          pulses through multi-bounce interactions, yielding high-fidelity point clouds for both indoor and outdoor scenes.
+        </p>
+      </div>
+
       <img src="./static/images/realidar_overview_pipeline.jpg" alt="Overview of ReaLiDAR simulation pipeline."
         class="blend-img-background center-image">
       <p>
         <strong>ReaLiDAR</strong> consists of 4 modules: <em>Laser Beam Modeling</em>, <em>Light Transport Modeling</em>,
         <em>Material Reflectance Modeling</em>, and <em>Post-Processing</em>.
       </p>
-      <br>
-      <div class="level-set has-text-justified">
-        <p>
-          We propose <strong>ReaLiDAR</strong>, a material-aware LiDAR simulation framework for autonomous driving.
-            The framework models the full LiDAR sensing pipeline, from the emission
-            and divergence of laser beams, through their propagation
-            in free space, to material-dependent scattering at surfaces
-            that ultimately generates echoes.
-          ReaLiDAR presents the following key contributions:
-        </p>
-        <p>
-          i) To the best of our knowledge, ReaLiDAR is the first material-aware LiDAR simulation framework for 3D perception in autonomous driving.
-           It accurately models key light scattering behaviors across a wide variety of materials, including Lambertian, reflective, retro-reflective, and transmissive materials. 
-        </p>
-        <p>
-          ii) We incorporate key factors governing LiDAR sensing, including beam divergence, material properties, intensity calibration, range falloff, 
-          and echo selection, in order to enhance simulation accuracy.
-        </p>
 
-        <p>
-          iii) We seamlessly integrate ReaLiDAR into CARLA simulator, facilitating large-scale testing of LiDAR-based autonomous driving models under diverse scenarios. 
-        </p>
-
-        <p>
-          iiii) We evaluate ReaLiDAR using two LiDAR sensors across three representative scenarios. 
-          Results show that ReaLiDAR achieves closer alignment with real-world scans in both range and intensity compared to existing methods. 
-          Furthermore, synthetic data generated by ReaLiDAR improves performance on downstream vehicle detection task, narrowing the sim-to-real gap compared to models 
-          trained on CARLA-generated data.
-        </p>
-      </div>
-      
     </div>
   </div>
 </section>
@@ -422,7 +376,9 @@
     <div class="columns is-centered">
       <div class="column is-full-width has-text-centered">
         <h2 class="title is-3">Downstream 3D Perception Task Performance</h2>
-        <p class="main-subtitle is-5 has-text-grey">Visualization of Vehicle Detection Results <br> model trained on synthetic data, validated on real-world KITTI datasets</p>
+
+        <h3 class="title is-4" style="margin-top: 2.5rem;">Visualization of Vehicle Detection Results</h3>
+        <p class="main-subtitle is-5 has-text-grey">model trained on synthetic data, validated on real-world KITTI datasets</p>
 
         <div class="columns is-multiline is-vcentered">
           <!-- Image 1 -->
@@ -473,6 +429,76 @@
             </svg>
             <span>Green bbox: detection results </span>
           </span>
+        </div>
+
+
+        <!-- Ghost Detection Results -->
+        <div class="ghost-detection-block" style="margin-top: 4rem;">
+          <h3 class="title is-4">Visualization of Ghost Detection Results</h3>
+          <p class="main-subtitle is-5 has-text-grey">
+            Qualitative comparison of ghost detection on 3DRef Dataset across different training settings
+          </p>
+
+          <div class="columns is-multiline is-vcentered">
+            <!-- (a) Ground truth -->
+            <div class="column is-half">
+              <figure class="image">
+                <img src="./static/images/ghost_detection_result_comparison/ghost_det_gt.png" alt="Ghost detection ground truth" loading="lazy" style="width:100%;height:auto;">
+              </figure>
+              <h4 class="title is-5">(a) Ground truth</h4>
+            </div>
+
+            <!-- (b) 5% real -->
+            <div class="column is-half">
+              <figure class="image">
+                <img src="./static/images/ghost_detection_result_comparison/ghost_det_5pct_real.png" alt="Ghost detection, 5% real" loading="lazy" style="width:100%;height:auto;">
+              </figure>
+              <h4 class="title is-5">(b) 5% real (<em>F</em><sub>1</sub> = 0.270)</h4>
+            </div>
+
+            <!-- (c) Sim K=10 -->
+            <div class="column is-half">
+              <figure class="image">
+                <img src="./static/images/ghost_detection_result_comparison/ghost_det_sim10x.png" alt="Ghost detection, Sim K=10" loading="lazy" style="width:100%;height:auto;">
+              </figure>
+              <h4 class="title is-5">(c) Sim <em>K</em>=10 (<em>F</em><sub>1</sub> = 0.745)</h4>
+            </div>
+
+            <!-- (d) Sim K=10 + 50% real -->
+            <div class="column is-half">
+              <figure class="image">
+                <img src="./static/images/ghost_detection_result_comparison/ghost_det_mix10x_50pct.png" alt="Ghost detection, Sim K=10 + 50% real" loading="lazy" style="width:100%;height:auto;">
+              </figure>
+              <h4 class="title is-5">(d) Sim <em>K</em>=10 + 50% real (<em>F</em><sub>1</sub> = 0.907)</h4>
+            </div>
+          </div>
+
+          <div class="bbox-note has-text-grey is-size-6">
+            <span class="legend-item">
+              <svg class="legend-icon" viewBox="0 0 20 20">
+                <circle cx="10" cy="10" r="8" fill="#22c55e"></circle>
+              </svg>
+              <span>Green: true positive</span>
+            </span>
+            <span class="legend-item">
+              <svg class="legend-icon" viewBox="0 0 20 20">
+                <circle cx="10" cy="10" r="8" fill="#ef4444"></circle>
+              </svg>
+              <span>Red: false positive</span>
+            </span>
+            <span class="legend-item">
+              <svg class="legend-icon" viewBox="0 0 20 20">
+                <circle cx="10" cy="10" r="8" fill="#3b82f6"></circle>
+              </svg>
+              <span>Blue: false negative</span>
+            </span>
+            <span class="legend-item">
+              <svg class="legend-icon" viewBox="0 0 20 20">
+                <circle cx="10" cy="10" r="8" fill="#d1d5db"></circle>
+              </svg>
+              <span>Light gray: non-ghost points</span>
+            </span>
+          </div>
         </div>
 
 

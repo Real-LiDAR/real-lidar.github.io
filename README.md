@@ -7,19 +7,8 @@ The official implementation is available at [zju-muslab/ReaLiDAR](https://github
 
 ## Authors
 
-Yuli Wu<sup>1,2</sup>, Duheng Pan<sup>1</sup>, Puhe Hao<sup>1,2</sup>,
-Yu'an Huang<sup>3</sup>, Feng Lin<sup>1,2</sup>, **Li Lu**<sup>1,2,*</sup>
-
-<sup>1</sup> State Key Laboratory of Blockchain and Data Security,
-College of Computer Science and Technology,
-School of Cyber Science and Technology, Zhejiang University
-
-<sup>2</sup> Hangzhou High-Tech Zone (Binjiang) Institute of
-Blockchain and Data Security
-
-<sup>3</sup> Chu Kochen Honors College, Zhejiang University
-
-\* Corresponding author
+Yuli Wu, Duheng Pan, Puhe Hao, Yu'an Huang, Feng Lin, Li Lu\*<br>
+*CCF Transactions on Pervasive Computing and Interaction*, 2026
 
 ## Citation
 

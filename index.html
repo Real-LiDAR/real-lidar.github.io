@@ -53,6 +53,70 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">ReaLiDAR: Material-Aware LiDAR Simulation for Robust 3D Sensing in Complex Environments</h1>
 
+          <p class="publication-status">
+            Accepted by
+            <strong>CCF Transactions on Pervasive Computing and Interaction</strong>
+          </p>
+
+          <div class="publication-authors">
+            <span class="author-block">Yuli Wu<sup>1,2</sup></span>,
+            <span class="author-block">Duheng Pan<sup>1</sup></span>,
+            <span class="author-block">Puhe Hao<sup>1,2</sup></span>,
+            <span class="author-block">Yu'an Huang<sup>3</sup></span>,
+            <span class="author-block">Feng Lin<sup>1,2</sup></span>,
+            <span class="author-block">Li Lu<sup>1,2,*</sup></span>
+          </div>
+          <div class="publication-affiliations">
+            <p class="publication-affiliation">
+              <sup>1</sup> State Key Laboratory of Blockchain and Data Security,
+              College of Computer Science and Technology,<br>
+              School of Cyber Science and Technology,
+              Zhejiang University
+            </p>
+            <p class="publication-affiliation">
+              <sup>2</sup> Hangzhou High-Tech Zone (Binjiang) Institute of
+              Blockchain and Data Security
+            </p>
+            <p class="publication-affiliation">
+              <sup>3</sup> Chu Kochen Honors College,
+              Zhejiang University
+            </p>
+          </div>
+          <p class="publication-author-note">* Corresponding author</p>
+
+          <div class="publication-links">
+            <span class="link-block">
+              <button type="button"
+                      class="button is-normal is-rounded is-dark"
+                      disabled aria-disabled="true"
+                      title="The paper is to appear; no link is available yet.">
+                <span class="icon" aria-hidden="true">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper (To appear)</span>
+              </button>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/zju-muslab/ReaLiDAR"
+                 class="external-link button is-normal is-rounded is-dark"
+                 target="_blank" rel="noopener noreferrer">
+                <span class="icon" aria-hidden="true">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="#bibtex"
+                 class="button is-normal is-rounded is-dark">
+                <span class="icon" aria-hidden="true">
+                  <i class="fas fa-quote-right"></i>
+                </span>
+                <span>BibTeX</span>
+              </a>
+            </span>
+          </div>
+
         </div>
       </div>
     </div>
@@ -377,66 +441,12 @@
       <div class="column is-full-width has-text-centered">
         <h2 class="title is-3">Downstream 3D Perception Task Performance</h2>
 
-        <h3 class="title is-4" style="margin-top: 2.5rem;">Visualization of Vehicle Detection Results</h3>
-        <p class="main-subtitle is-5 has-text-grey">model trained on synthetic data, validated on real-world KITTI datasets</p>
-
-        <div class="columns is-multiline is-vcentered">
-          <!-- Image 1 -->
-          <div class="column is-half">
-            <figure class="image">
-              <img src="./static/images/object_detection_result_comparison/carla_baseline_wo_int_48.png" alt="CARLA Baseline Sample 1" loading="lazy" style="width:100%;height:auto;">
-            </figure>
-
-            <h4 class="title is-5">CARLA Baseline (w/o intensity)</h4>
-          </div>
-
-          <!-- Image 2 -->
-          <div class="column is-half">
-            <figure class="image">
-              <img src="./static/images/object_detection_result_comparison/realidar_48.png" alt="ReaLiDAR Sample 1" loading="lazy" style="width:100%;height:auto;">
-            </figure>
-            <h4 class="title is-5">ReaLiDAR</h4>
-          </div>
-
-          <!-- Image 3 -->
-          <div class="column is-half">
-            <figure class="image">
-              <img src="./static/images/object_detection_result_comparison/carla_baseline_wo_int_24.png" alt="CARLA Baseline Sample 2" loading="lazy" style="width:100%;height:auto;">
-            </figure>
-            <h4 class="title is-5">CARLA Baseline (w/o intensity)</h4>
-          </div>
-
-          <!-- Image 4 -->
-          <div class="column is-half">
-            <figure class="image">
-              <img src="./static/images/object_detection_result_comparison/realidar_24.png" alt="ReaLiDAR Sample 2" loading="lazy" style="width:100%;height:auto;">
-            </figure>
-            <h4 class="title is-5">ReaLiDAR</h4>
-          </div>
-        </div>
-
-        <div class="bbox-note has-text-grey is-size-6">
-          <span class="legend-item">
-            <svg class="legend-icon" viewBox="0 0 20 20">
-              <rect x="2" y="2" width="16" height="16" fill="none" stroke="#ef4444" stroke-width="3"></rect>
-            </svg>
-            <span>Red bbox: ground-truths</span>
-          </span>
-
-          <span class="legend-item">
-            <svg class="legend-icon" viewBox="0 0 20 20">
-              <rect x="2" y="2" width="16" height="16" fill="none" stroke="#22c55e" stroke-width="3"></rect>
-            </svg>
-            <span>Green bbox: detection results </span>
-          </span>
-        </div>
-
-
         <!-- Ghost Detection Results -->
-        <div class="ghost-detection-block" style="margin-top: 4rem;">
+        <div class="ghost-detection-block">
           <h3 class="title is-4">Visualization of Ghost Detection Results</h3>
           <p class="main-subtitle is-5 has-text-grey">
-            Qualitative comparison of ghost detection on 3DRef Dataset across different training settings
+            Qualitative comparison of ghost detection on Corridor with Mirrors
+            (Scene 1) from the 3DRef dataset across different training settings
           </p>
 
           <div class="columns is-multiline is-vcentered">
@@ -469,7 +479,7 @@
               <figure class="image">
                 <img src="./static/images/ghost_detection_result_comparison/ghost_det_mix10x_50pct.png" alt="Ghost detection, Sim K=10 + 50% real" loading="lazy" style="width:100%;height:auto;">
               </figure>
-              <h4 class="title is-5">(d) Sim <em>K</em>=10 + 50% real (<em>F</em><sub>1</sub> = 0.907)</h4>
+              <h4 class="title is-5">(d) Sim <em>K</em>=10 + 50% real (<em>F</em><sub>1</sub> = 0.910)</h4>
             </div>
           </div>
 
@@ -504,6 +514,20 @@
 
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="bibtex" aria-labelledby="bibtex-title">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="bibtex-title">BibTeX</h2>
+    <pre class="bibtex-code"><code>@article{yuli_realidar,
+  author  = {Wu, Yuli and Pan, Duheng and Hao, Puhe and
+             Huang, Yu'an and Lin, Feng and Lu, Li},
+  title   = {{ReaLiDAR}: Material-Aware {LiDAR} Simulation for
+             Robust {3D} Sensing in Complex Environments},
+  journal = {CCF Transactions on Pervasive Computing and Interaction},
+  note    = {Accepted for publication; to appear}
+}</code></pre>
   </div>
 </section>
 
